@@ -1,0 +1,6 @@
+<%= render partial: "shared/nav" %>
+
+<h2>Show Bulk Discounts</h2>
+
+<p>Discount: <%= number_to_percentage(@bulk_discount.percentage_discount,  precision: 0) %></p>
+<p>Quantity Threshold: <%= @bulk_discount.quantity_threshold %></p>
