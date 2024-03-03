@@ -53,3 +53,20 @@
 <p>Total Revenue: <%= number_to_currency(@invoice.total_revenue) %></p>
 <p>Total Discounts: <%= number_to_currency(@invoice.total_discounts) %></p>
 <p>Total Discounted Revenue: <%= number_to_currency(@invoice.total_discounted_revenue) %></p>
+
+<% @invoice.invoice_items.each do |invoice_item| %>
+  <div id="invoice-item-<%= invoice_item.id %>">
+    <p>Item Name: <%= invoice_item.item.name %></p>
+    <p>Quantity: <%= invoice_item.quantity %></p>
+    <p>Unit Price: <%= number_to_currency(invoice_item.unit_price / 100.0) %></p>
+    <p>Status: <%= invoice_item.status %></p>
+    <% discount = invoice_item.applied_discount %>
+    <p>
+      <% if discount %>
+        Discount Applied: <%= link_to "#{discount.percentage_discount}% off", merchant_bulk_discount_path(invoice_item.item.merchant, discount) %>
+      <% else %>
+        Discount Applied: No Discount
+      <% end %>
+    </p>
+  </div>
+<% end %>

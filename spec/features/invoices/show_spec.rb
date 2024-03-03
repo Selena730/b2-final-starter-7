@@ -111,4 +111,16 @@ RSpec.describe "invoices show" do
     expect(page).to have_content("Total Discounts: $7.20")
     expect(page).to have_content("Total Discounted Revenue: $154.80")
   end
+
+  it 'displays each invoice item with details and link to applied discount' do
+    visit merchant_invoice_path(@merchant1, @invoice_1)
+    # binding.pry
+    within("#invoice-item-#{@ii_1.id}") do
+      expect(page).to have_content("Shampoo")
+      expect(page).to have_content("Quantity: 9")
+      expect(page).to have_content("Unit Price: $0.10")
+      expect(page).to have_content("Status: shipped")
+      expect(page).to have_content("No Discount")
+    end
+  end
 end
