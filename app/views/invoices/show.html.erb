@@ -49,3 +49,7 @@
   </table>
 
 </body>
+
+<p>Total Revenue: <%= number_to_currency(@invoice.total_revenue) %></p>
+<p>Total Discounts: <%= number_to_currency(@invoice.total_discounts) %></p>
+<p>Total Discounted Revenue: <%= number_to_currency(@invoice.total_discounted_revenue) %></p>
