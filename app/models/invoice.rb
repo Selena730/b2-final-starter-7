@@ -27,3 +27,5 @@ class Invoice < ApplicationRecord
     total_revenue - total_discounts
   end
 end
+
+# total discounts = = (item 1 revenue * discount amount %) + (item 2 revenue * discount amount%)

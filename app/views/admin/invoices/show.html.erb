@@ -45,3 +45,6 @@
   </table>
 
 </body>
+
+<h3>Total Revenue: <%= number_to_currency(@invoice.total_revenue / 100.0) %></h3>
+<h3>Total Discounted Revenue: <%= number_to_currency(@invoice.total_discounted_revenue / 100.0) %></h3>
